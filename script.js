@@ -190,10 +190,44 @@ async function checkSession() {
   }
 }
 
+// ---------- DISPLAY REVIEWS ----------
+async function displayReviews() {
+  const grid = document.querySelector('.review-grid');
+  if (!grid || !window.supabaseClient) return;
+
+  const { data: reviews, error } = await window.supabaseClient
+    .from('reviews')
+    .select('*')
+    .order('created_at', { ascending: false });
+
+  if (error) {
+    console.warn('[DEVSHOP] خطأ في جلب التقييمات:', error.message);
+    return;
+  }
+
+  if (!reviews || reviews.length === 0) return;
+
+  // استبدل التقييمات الثابتة بالتقييمات من Supabase
+  grid.innerHTML = reviews.map(rev => `
+    <div class="review-card reveal visible">
+      <div class="review-stars">${'★'.repeat(rev.stars)}${'☆'.repeat(5 - rev.stars)}</div>
+      <p class="review-text">"${rev.text}"</p>
+      <div class="review-author">
+        <div class="review-avatar">${rev.name[0].toUpperCase()}</div>
+        <div>
+          <div class="review-name">${rev.name}</div>
+          <div class="review-date">${(rev.created_at || '').slice(0, 7)} · ${rev.service || '—'}</div>
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
 // ---------- BOOT ----------
 document.addEventListener('DOMContentLoaded', () => {
   initParticles();
   initScrollReveal();
   initNavHighlight();
   checkSession();
+  displayReviews();
 });
