@@ -7,8 +7,8 @@
 // 1) روح على https://supabase.com وأنشئ مشروع جديد
 // 2) من Settings > API انسخ URL و anon key وضعهم هنا
 
-const SUPABASE_URL  = 'https://YOUR_PROJECT.supabase.co';  // ← غيّر هذا
-const SUPABASE_KEY  = 'YOUR_ANON_KEY_HERE';                // ← غيّر هذا
+const SUPABASE_URL  = 'https://ldrrkdaznmiomqdoxaom.supabase.co';  // ← غيّر هذا
+const SUPABASE_KEY  = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxkcnJrZGF6bm1pb21xZG94YW9tIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU0MTY5NjksImV4cCI6MjA5MDk5Mjk2OX0.jrZ9box4sp46-o1jbk_Atr8VrodQ7v_sccpPw-rB2NY';                // ← غيّر هذا
 
 // ============================================================
 //  IDs الأدمن على ديسكورد (provider_id من Supabase Auth)
