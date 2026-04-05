@@ -158,7 +158,7 @@ async function loginWithDiscord() {
   }
   const { error } = await window.supabaseClient.auth.signInWithOAuth({
     provider: 'discord',
-    options: { redirectTo: 'https://alleppella07-svg.github.io/' }
+    options: { redirectTo: 'https://alleppella07-svg.github.io' }
   });
   if (error) showToast('خطأ: ' + error.message, 'error');
 }
